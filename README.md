@@ -41,7 +41,7 @@ Finally execute these:
 ```
 . build/envsetup.sh
 lunch omni_tucana-eng
-mka recoveryimage ALLOW_MISSING_DEPENDENCIES=true # Only if you use minimal twrp tree.
+mka recoveryimage
 ```
 
 To test it:
