@@ -15,6 +15,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_sweet.mk
+    $(LOCAL_DIR)/twrp_tucana.mk
 
-COMMON_LUNCH_CHOICES := twrp_sweet-eng
+COMMON_LUNCH_CHOICES := twrp_tucana-eng

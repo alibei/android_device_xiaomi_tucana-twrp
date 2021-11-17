@@ -1,14 +1,10 @@
 <!--
     Input:
         manifest.xml
-        manifest_nfc.xml
-        manifest_uicc.xml
         manifest.xml
-        manifest_ds.xml
         c2_manifest.xml
-        manifest.xml
 -->
-<manifest version="2.0" type="device" target-level="5">
+<manifest version="2.0" type="device" target-level="3">
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
@@ -58,6 +54,16 @@
             <instance>legacy/0</instance>
         </interface>
         <fqname>@2.4::ICameraProvider/legacy/0</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.configstore</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>ISurfaceFlingerConfigs</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::ISurfaceFlingerConfigs/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.gatekeeper</name>
@@ -179,8 +185,10 @@
         <interface>
             <name>ISecureElement</name>
             <instance>SIM1</instance>
+            <instance>eSE1</instance>
         </interface>
         <fqname>@1.2::ISecureElement/SIM1</fqname>
+        <fqname>@1.2::ISecureElement/eSE1</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.sensors</name>
@@ -235,17 +243,22 @@
     <hal format="hidl">
         <name>com.fingerprints.extension</name>
         <transport>hwbinder</transport>
-        <version>3.0</version>
+        <version>2.0</version>
         <interface>
-            <name>IFingerprintNavigation</name>
+            <name>IFingerprintEngineering</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IFingerprintOptical</name>
             <instance>default</instance>
         </interface>
         <interface>
             <name>IFingerprintSensorTest</name>
             <instance>default</instance>
         </interface>
-        <fqname>@3.0::IFingerprintNavigation/default</fqname>
-        <fqname>@3.0::IFingerprintSensorTest/default</fqname>
+        <fqname>@2.0::IFingerprintEngineering/default</fqname>
+        <fqname>@2.0::IFingerprintOptical/default</fqname>
+        <fqname>@2.0::IFingerprintSensorTest/default</fqname>
     </hal>
     <hal format="hidl">
         <name>com.qualcomm.qti.bluetooth_audio</name>
@@ -288,24 +301,24 @@
         <fqname>@1.0::IDisplayPostproc/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.goodix.hardware.biometrics.fingerprint</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IGoodixFingerprintDaemon</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IGoodixFingerprintDaemon/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.nxp.hardware.nfc</name>
         <transport>hwbinder</transport>
-        <version>2.0</version>
+        <version>1.1</version>
         <interface>
             <name>INqNfc</name>
             <instance>default</instance>
         </interface>
-        <fqname>@2.0::INqNfc/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.nxp.nxpnfclegacy</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>INxpNfcLegacy</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::INxpNfcLegacy/default</fqname>
+        <fqname>@1.1::INqNfc/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.data.factory</name>
@@ -733,16 +746,6 @@
         <fqname>@1.0::IXiaomiFingerprint/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.xiaomi.hardware.fx.tunnel</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IMiFxTunnel</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IMiFxTunnel/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.xiaomi.hardware.touchfeature</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -755,5 +758,4 @@
     <sepolicy>
         <version>30.0</version>
     </sepolicy>
-    <kernel target-level="5"/>
 </manifest>
